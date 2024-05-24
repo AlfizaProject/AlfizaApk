@@ -1,22 +1,28 @@
 import "package:flutter/material.dart";
-
 import "package:google_fonts/google_fonts.dart";
 import "package:komas_latihan/CostumView/button.dart";
 import "package:komas_latihan/CostumView/my_textfield.dart";
 
-class LoginPage extends StatelessWidget {
-
-//email and pw tet controller 
+class RegisterPage extends StatelessWidget {
+  
+  //controller
 final TextEditingController _emailController = TextEditingController();
 final TextEditingController _pwController = TextEditingController();
+final TextEditingController _confirmController = TextEditingController();
 
 //tap to register page
 final void Function()? onTap;
 
-  LoginPage({
-    super.key,
-    this.onTap
-  });
+
+ RegisterPage({
+  super.key,
+  this.onTap
+ });
+
+ //method register
+ void register(){
+
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +39,7 @@ final void Function()? onTap;
             ),
 
             //logo
-            Image.asset('lib/src/images/login.png', width: 350,),
+            Image.asset('lib/src/images/register.png', width: 350,),
 
             const SizedBox(
               height: 20,
@@ -42,7 +48,7 @@ final void Function()? onTap;
 
             //welcome back message
             Text(
-              "Silahkan Login dulu ",
+              "Mohon isi data dengan benar ",
               style: GoogleFonts.inter(
                 color: Colors.white,
                 fontSize: 16, 
@@ -73,17 +79,29 @@ final void Function()? onTap;
               obsecureText: true,
               controller: _pwController,
               ),
+            
+            const SizedBox(
+              height: 10,
+            ),
+
+            //confirm pw textfield
+             MyTextField(
+              hintText: "Konfirmasi Password", 
+              obsecureText: true,
+              controller: _confirmController,
+              ),
+
 
               const SizedBox(
                 height: 40,
               ),
 
-            //login button
+            //regis button
             Padding(
               padding: const EdgeInsets.symmetric(vertical:10, horizontal: 120 ),
-              child: MyButton(text: "Login", 
+              child: MyButton(text: "Register", 
               onTap: (){
-                Navigator.pushNamed(context, '/homepage');
+                Navigator.pushNamed(context, '/loginpage');
               }, 
               // onTap: onTap,
               style: GoogleFonts.inter, 
@@ -93,19 +111,22 @@ final void Function()? onTap;
             ),
 
 
-            //register now
+            //login now
             
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
               const Text(
-                "Belum punya akun? ",
+                "sudah punya akun? ",
+                
+                
                 ),
 
               GestureDetector(
-              onTap: onTap,
-                child: Text("Daftar sekarang",
+                onTap: onTap,
+                child: Text("Masuk di sini",
                 style: TextStyle(color: Theme.of(context).colorScheme.primary),
+                
                 ),
               ),
             ],
@@ -114,6 +135,7 @@ final void Function()? onTap;
             const SizedBox(
               height: 50,
             ),
+          
           ],
         ),
       ),

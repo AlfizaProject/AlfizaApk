@@ -10,8 +10,8 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
-      body: Padding(
+      backgroundColor: Colors.brown.shade200,
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(25.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,7 +35,7 @@ class IntroPage extends StatelessWidget {
             //icon
             Padding(
               padding: const EdgeInsets.all(30.0),
-              child: Image.asset('lib/src/images/login.png'),
+              child: Image.asset('lib/src/images/welcome.png'),
             ),
 
             //title
@@ -55,7 +55,7 @@ class IntroPage extends StatelessWidget {
               style: GoogleFonts.inter(fontSize: 20, color: Colors.white),
             ),
 
-                        const SizedBox(
+            const SizedBox(
               height: 70,
             ),
             
@@ -65,19 +65,21 @@ class IntroPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child:  MyButton(text: 
               "Next",
+              icon: const Icon(Icons.arrow_forward),
               style: GoogleFonts.inter,
               fontSize: 25,
               height: 2,
               fontWeight: FontWeight.bold,
               // icon: const Icon (Icons.arrow_forward, color: Colors.white,),
               // const Icon(Icons.arrow_forward, color: Colors.white),
-              onTap: (){
+              onTap: (){  
                 //Next to Login
-                Navigator.pushNamed(context, '/loginpage');
+                  Navigator.pushNamed(context, '/loginorregis');
               } ,
               ),
-            )
-          // )
+            ),
+            
+           
 
           ],
         ),

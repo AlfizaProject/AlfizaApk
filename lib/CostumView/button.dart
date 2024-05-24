@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 
 class MyButton extends StatelessWidget {
   final String text;
+  final Icon? icon;
   final void Function()? onTap;
   const MyButton(
       {super.key,
       required this.text,
       required this.onTap,
+      this.icon,
       required TextStyle Function(
               {Paint? background,
               Color? backgroundColor,
@@ -39,8 +41,9 @@ class MyButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-            color: const Color.fromARGB(104, 148, 209, 237),
-            borderRadius: BorderRadius.circular(40)),
+            // color: const Color.fromARGB(104, 148, 209, 237),
+            color: Colors.brown,
+            borderRadius: BorderRadius.circular(20)),
         padding: const EdgeInsets.all(20),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           //text
@@ -51,7 +54,7 @@ class MyButton extends StatelessWidget {
           ),
       
           //icon
-          const Icon(Icons.arrow_forward, color: Colors.white)
+          // Icon(Icons.arrow_forward, color: Colors.white)
         ]),
       ),
     );
